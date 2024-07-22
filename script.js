@@ -41,6 +41,12 @@ function getCardsData(){
     return cards === null ? [] : cards;
 }
 
+// Add card to local storage
+function setCardsData(cards){
+    localStorage.setItem('cards', JSON.stringify(cards));
+    window.location.reload();
+}
+
 // Create all cards
 function createCards(){
     cardsData.forEach((data, index) => createCard(data, index));
