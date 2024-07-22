@@ -81,8 +81,11 @@ h1 button {
   height: 100%;
   width: 100%;
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 .inner-card-front, .inner-card-back {
+  backface-visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -92,6 +95,16 @@ h1 button {
   height: 100%;
   width: 100%;
   background: #fff;
+}
+.inner-card-front::after, .inner-card-back::after {
+  content: "\f021";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #ddd;
 }
 .inner-card-front {
   transform: rotateX(0deg);
