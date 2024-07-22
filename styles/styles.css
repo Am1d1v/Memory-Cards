@@ -59,11 +59,20 @@ h1 button {
   left: 0;
   height: 100%;
   width: 100%;
+  transform: translateX(50%) rotateY(-10deg);
+  transition: transform 0.5s, opacity 0.5s;
 }
 .card.active {
   opacity: 1;
   cursor: pointer;
   z-index: 10;
+  transform: translateX(0) rotateY(0deg);
+}
+.card.left {
+  transform: translateX(-50%) rotateY(10deg);
+}
+.card.show-answer .inner-card {
+  transform: rotateX(180deg);
 }
 
 .inner-card {
@@ -83,4 +92,11 @@ h1 button {
   height: 100%;
   width: 100%;
   background: #fff;
+}
+.inner-card-front {
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+.inner-card-back {
+  transform: rotateX(180deg);
 }/*# sourceMappingURL=styles.css.map */

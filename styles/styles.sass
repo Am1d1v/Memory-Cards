@@ -53,12 +53,21 @@ h1
     top: 0
     left: 0
     height: 100%
-    width: 100%
+    width: 100% 
+    transform: translateX(50%) rotateY(-10deg)
+    transition: transform 0.5s, opacity 0.5s
     &.active
         opacity: 1
         cursor: pointer
         z-index: 10
+        transform: translateX(0) rotateY(0deg)
+    &.left
+        transform: translateX(-50%) rotateY(10deg)
+    &.show-answer
+        .inner-card
+            transform: rotateX(180deg)
 
+            
 .inner-card
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3)
     border-radius: 3px
@@ -75,4 +84,10 @@ h1
         height: 100%
         width: 100%
         background: #fff
+    &-front
+        transform: rotateX(0deg)
+        z-index: 2
+    &-back    
+        transform: rotateX(180deg)
+
 
