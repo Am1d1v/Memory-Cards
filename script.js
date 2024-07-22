@@ -119,3 +119,36 @@ prevButton.addEventListener('click', (event) => {
     updateCurrentText();
 });
 
+// Show add container
+showButton.addEventListener('click', (event) => {
+    addContainer.classList.add('show');
+});
+
+ // Hide add container by clicking on hide button
+hideButton.addEventListener('click', () => {
+    addContainer.classList.remove('show');
+});
+
+// Add new card
+addCardButton.addEventListener('click', () => {
+    const question = questionEl.value;
+    const answer = answerEl.value;
+    
+    if(question.trim() && answer.trim()){
+        const newCard = {
+            question,
+            answer
+        };
+
+        createCard(newCard);
+
+        questionEl.value = '';
+        answerEl.value = '';
+
+        addContainer.classList.remove('show');
+        
+        cardsData.push(newCard);
+        setCardsData(cardsData);
+    }
+
+});
