@@ -61,9 +61,21 @@ function createCard(data, index){
         </div>
     `;
 
+    // Show answer
+    card.addEventListener('click', () => {
+        card.classList.toggle('show-answer');
+    });
+
     // Add to DOM cards
     cardsEl.push(card);
 
     cardsContainer.appendChild(card);
 
+    updateCurrentText();
+
+};
+
+// Show number of cards
+function updateCurrentText(){
+    currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
 };
