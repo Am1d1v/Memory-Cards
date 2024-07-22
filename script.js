@@ -79,3 +79,36 @@ function createCard(data, index){
 function updateCurrentText(){
     currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
 };
+
+// Next Card
+nextButton.addEventListener('click', (event) => {
+    cardsEl[currentActiveCard].className = 'card left';
+
+    currentActiveCard = currentActiveCard + 1;
+
+    // Borders
+    if(currentActiveCard > cardsEl.length - 1){
+        currentActiveCard = currentActiveCard - 1;
+    }
+
+    cardsEl[currentActiveCard].className = 'card active';
+
+    updateCurrentText();
+});
+
+// Previous Card
+prevButton.addEventListener('click', (event) => {
+    cardsEl[currentActiveCard].className = 'card right';
+
+    currentActiveCard = currentActiveCard - 1;
+
+    // Borders
+    if(currentActiveCard < 0){
+        currentActiveCard = 0;
+    }
+
+    cardsEl[currentActiveCard].className = 'card active';
+
+    updateCurrentText();
+});
+
