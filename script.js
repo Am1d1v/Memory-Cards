@@ -19,20 +19,27 @@ let currentActiveCard = 0;
 const cardsEl = [];
 
 // Store card data
-const cardsData = [
-    {
-        question: 'Question 1',
-        answer: 'Answer 1'
-    },
-    {
-        question: 'Question 2',
-        answer: 'Answer 2'
-    },
-    {
-        question: 'Question 3',
-        answer: 'Answer 3'
-    }
-];
+const cardsData = getCardsData();
+// const cardsData = [
+//     {
+//         question: 'Question 1',
+//         answer: 'Answer 1'
+//     },
+//     {
+//         question: 'Question 2',
+//         answer: 'Answer 2'
+//     },
+//     {
+//         question: 'Question 3',
+//         answer: 'Answer 3'
+//     }
+// ];
+
+// Get cards from local storage
+function getCardsData(){
+    const cards = JSON.parse(localStorage.getItem('cards'));
+    return cards === null ? [] : cards;
+}
 
 // Create all cards
 function createCards(){
